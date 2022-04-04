@@ -4,7 +4,7 @@ namespace ExAgencia
     {
         public int Classe { get; set; }
         public int Poltrona { get; set; }
-        public double Valor { get; set; }
+        public double ValorPassagem { get; set; }
         public Pessoa Passageiro {get; set;}
         public Voo Voo { get; set; }
         
@@ -12,7 +12,7 @@ namespace ExAgencia
         {
             Classe = classe;
             Poltrona = poltrona;
-            Valor = CalcularValor(valor);
+            ValorPassagem = CalcularValor(valor);
             Passageiro = passageiro;
             Voo = new Voo (542, "Piauí", "Rio de Janeiro", DateTime.Parse("15:00:00"), DateTime.Parse("15/02/2023"), "GOL");
         }
