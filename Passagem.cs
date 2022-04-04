@@ -2,19 +2,31 @@ namespace ExAgencia
 {
     public class Passagem
     {
-        public string Empresa { get; set; }
-        public string Classe { get; set; }
+        public int Classe { get; set; }
         public int Poltrona { get; set; }
-        public int Valor { get; set; }
-        public DateTime HorarioEmbarque { get; set; }
-        public DateTime DataPassagem { get; set; }
-        public Passagem(string empresa, string classe, int poltrona, int valor, string dataPassagem)
+        public double Valor { get; set; }
+        public Pessoa Passageiro {get; set;}
+        public Voo Voo { get; set; }
+        
+        public Passagem(int classe, int poltrona, double valor, Pessoa passageiro)
         {
-            Empresa = empresa;
             Classe = classe;
             Poltrona = poltrona;
-            Valor = valor;
-            DataPassagem = DateTime.Parse(dataPassagem);
+            Valor = CalcularValor(valor);
+            Passageiro = passageiro;
+            Voo = new Voo (542, "Piauí", "Rio de Janeiro", DateTime.Parse("15:00:00"), DateTime.Parse("15/02/2023"), "GOL");
+        }
+
+        public string ResumoPassagem(){
+            return Console.WriteLine($"Cliente {Passageiro.PrimeiroNome()}, poltrona número {Poltrona} e o valor da passagem é de R${Valor}.")
+        }
+        public double CalcularValor(valor){
+            if(classe==1){
+                return valor = valor*3;
+            }
+            else{
+                return Math.Abs(valor);
+            }
         }
     }
 }
